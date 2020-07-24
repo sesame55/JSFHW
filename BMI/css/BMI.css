@@ -1,6 +1,5 @@
 body {
     font-family: '微軟正黑體';
-    
 }
 
 /* 外框 */
@@ -9,6 +8,7 @@ body {
     min-height: 100%;
     position: relative;
 }
+
 /* header */
 .header {
     width: 100%;
@@ -54,18 +54,27 @@ body {
     line-height: 120px;
     position: relative;
 }
-.topBtn:hover{  
-    box-shadow:0px 0px 10px #ffd366 ;
+.topBtn:hover {
+    box-shadow: 0px 0px 10px #ffd366;
 }
-.topBtn:active{
-    background-color: #DEA921 ;
-    box-shadow:0px 0px 0px #ffd366 ;
+.topBtn:active {
+    background-color: #dea921;
+    box-shadow: 0px 0px 0px #ffd366;
 }
 
 .topBtn p {
     font-size: 24px;
 }
 
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        padding-bottom: 30px;
+        padding-top: 30px;
+    }
+}
 
 /* header -狀態按鈕 */
 .statusBtn {
@@ -76,11 +85,11 @@ body {
     border-radius: 60px;
     position: relative;
     /* display: flex; */
-display: none;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    line-height:normal;
+    line-height: normal;
     /* color: #86d73e; */
 }
 .statusBtn p {
@@ -105,7 +114,7 @@ display: none;
     right: 0;
     bottom: 0;
     /* display: flex; */
-display: none;
+    display: none;
     justify-content: center;
     align-items: center;
 }
@@ -145,24 +154,32 @@ display: none;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    
+}
+@media (max-width: 768px) {
+    .content ul {
+        width: auto;
+    }
+    .content ul li {
+        flex-wrap: wrap;
+        height: auto;
+    }
 }
 
 /* 顯示結果 */
-.liText{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-/* border: 1px solid red; */
+.liText {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
 }
-.allText{
+.allText {
     font-size: 12px;
     margin-right: 7px;
 }
 
 /* 全部清除-按鈕 */
-.clear{
+.clear {
     color: #424242;
 }
 
