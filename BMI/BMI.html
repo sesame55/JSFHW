@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/BMI.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="icon">
+                <img src="img/BMICLogo.png" alt="">
+
+            </div>
+            <div class="allInput">
+                <div class="inputText">
+                    <label for="height">身高 cm</label>
+                    <br>
+                    <input type="number" name="" id="height">
+                </div>
+                <div class="inputText">
+                    <label for="kg">體重 kg</label>
+                    <br>
+                    <input type="number" name="" id="weight"">
+                </div>
+            </div>
+            <div class="topRight">
+                    <div class="topBtn">
+                        <p id="topBtn">看結果</p>
+                    </div>
+                    <div class="statusBtn">
+                        <p class="statusNum">11.94</p>
+                        <span>BMI</span>
+                        <div class="reBtn">
+                            <a href="BMI.html">
+                                <img src="img/icons_loop.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <h2>BMI紀錄</h2>
+                <ul class="list">
+                    <!-- <li>
+                        <span class="status">體重過輕</span>
+                        <div class="liText">
+                            <div class="allText">BMI</div>
+                            <div class="bmi"> 20.90</div>
+                        </div>
+                        <div class="liText">
+                            <div class="allText">Weight</div>
+                            <div class="weight">70kg</div>
+                        </div>
+                        <div class="liText">
+                            <div class="allText">Height</div>
+                            <div class="height">180cm</div>
+                        </div>
+                        <div class="liText">
+                            <div class="date allText">2020-07-20</div>
+                        </div>
+                    </li> -->
+                </ul>
+                  <button class="btn btn-outline-light clear">全部清除</button>
+            </div>
+            <div class="footer">
+                <img src="img/footerLogo.png" alt="">
+            </div>
+        </div>
+        <script src="js/BMI.js"></script>
+</body>
+
+</html>
