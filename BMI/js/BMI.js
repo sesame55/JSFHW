@@ -130,7 +130,9 @@ let topB = () => { //上方按鈕結果顯示
                                 <img src="img/icons_loop.png" alt="">
                             </a>
                         </div>
-                    </div>`
+                    </div>
+<div class="topBtnText" style='color:${BMIData[item.status].class}'>${BMIData[item.status].status}</div>
+                    `
     })
     btnList.innerHTML = text;
 }
@@ -153,7 +155,7 @@ let delOneData = e => { //刪除單筆資料
         // console.log(num);//確認抓到的值是否正確
         arrayBMI.splice(num, 1); //刪除對應的內容
         localStorage.setItem('listData', JSON.stringify(arrayBMI)); //更新localStorage
-        render();//重新渲染畫面
+        render(); //重新渲染畫面
     }
 }
 list.addEventListener('click', delOneData, false); //注意監聽範圍是整個輸出列表

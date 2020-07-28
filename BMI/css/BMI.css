@@ -102,6 +102,11 @@ body {
     text-align: center;
 }
 
+.topBtnText{
+    padding-top: 20px;
+    font-size:32px ;
+}
+
 /* 清除內容 */
 .reBtn {
     width: 30px;
