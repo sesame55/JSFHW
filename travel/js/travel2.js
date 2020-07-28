@@ -198,6 +198,8 @@ let switchPage = e => { //分頁的換頁動作
     const page = e.target.dataset.page; //抓取分頁按鈕的頁碼
     switch (true) {
         case areaName.textContent !== '高雄旅遊':
+            //使用下拉選單選取後出現的標題進行比對
+            // console.log(areaName.textContent);
             // console.log(zoneData);
             pageAll(zoneData, page); //使用地區資料
             break;
