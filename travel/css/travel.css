@@ -174,7 +174,7 @@ body {
 }
 
 /* 中間區塊 */
-.container {
+.containerArea {
     /* width: 100%; */
     margin: 0 auto;
     display: flex;
@@ -184,7 +184,7 @@ body {
     /* border: 1px solid green; */
 }
 
-.container .areaName {
+.containerArea .areaName {
     font-size: 36px;
     color: #8a82cc;
     font-family: 'Microsoft JhengHei';
@@ -244,14 +244,7 @@ body {
     align-self: stretch;
     margin-bottom: 15px;
 }
-/* .area-container .img{
-    background: url(../img/Hero.png) no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 155px;
-    align-self: stretch;
-    margin-bottom: 15px;
-} */
+
 
 .title,
 .open_time,

@@ -1,3 +1,11 @@
+/*
+分頁邏輯教學及參考資料：
+https: //codepen.io/albert0810/pen/qBdZJYE?editors=1010
+https: //hsiangfeng.github.io/javascript/20190505/1432256317/
+https: //hackmd.io/pLyb5TWGT7Wittt63fuyUg#%E5%8F%96%E5%BE%97%E8%B3%87%E6%96%99
+*/
+
+
 const url = 'https://raw.githubusercontent.com/hexschool/KCGTravel/master/datastore_search.json';
 let data = {}; //裝全部資料的容器，很多方訓要用，必須放在全域
 let zoneData = []; //特定地區資料容器，很多方訓要用，也放在全域
@@ -33,7 +41,7 @@ let selectZone = (data) => {
 
 //選擇下拉選單內的選項，更改中間區塊標題+渲染篩選後畫面
 let selectChange = e => {
-    zoneData.length = 0; //清空上一個函式的資料
+    zoneData.length = 0; //清空上一個函式push的資料，不清空新資料會疊加在舊資料後方
     const selectValue = e.target.value;
     //e.target.value 取得所點擊的值
     // console.log(selectValue); //確認選擇的值
@@ -129,6 +137,7 @@ let pageBtn = pages => {
     const total = pages.pageTotal; //總頁數，用在產生迴圈結束點
 
     if (pages.hasPage) { //判斷上一頁
+        //${Number(pages.nowPage) - 1} = 當前頁碼-1，會重新導回pageAll()，而pageAll()內用來儲存分頁資料的pageData就會改變，索引值會回到前一個數字，也就是上一頁
         str += `
         <li class="page-item">
             <a class="page-link" href="#" data-page="${Number(pages.nowPage) - 1}">
@@ -143,14 +152,16 @@ let pageBtn = pages => {
     }
 
     for (let i = 1; i <= total; i++) { //迴圈增加頁碼
+        //用<=是因為總頁數那一頁也要執行，例如總數3頁，用<會只出現2頁
         if (Number(pages.nowPage) === i) {
+            //有active是指所點擊的當前頁碼，bootstrap設定呈現藍色背景
             str += `
             <li class="page-item active">
                 <a class="page-link" href="#" data-page="${i}">
                     ${i}            
                 </a>
             </li>`;
-        } else { //上方有active是指當前頁面
+        } else {
             str += `
             <li class="page-item">
                 <a class="page-link" href="#" data-page="${i}">
@@ -161,13 +172,14 @@ let pageBtn = pages => {
     };
 
     if (pages.hasNextPage) { //下一頁
+        //和上一頁的-1相反，+1可以使當前頁碼+1，會重新導回pageAll()，而pageAll()內用來儲存分頁資料的pageData就會改變，索引值會來到下一個數字，也就是下一頁
         str += `
         <li class="page-item">
             <a class="page-link" href="#" data-page="${Number(pages.nowPage) + 1}">
                 Next
             </a>
         </li>`;
-    } else {
+    } else { //注意有disabled，無法再往後或只有1頁就會呈現灰色的禁用按鈕
         str += `
         <li class="page-item disabled">
             <span class="page-link">
@@ -186,10 +198,11 @@ let switchPage = e => { //分頁的換頁動作
     const page = e.target.dataset.page; //抓取分頁按鈕的頁碼
     switch (true) {
         case areaName.textContent !== '高雄旅遊':
-            pageAll(zoneData, page);
+            // console.log(zoneData);
+            pageAll(zoneData, page); //使用地區資料
             break;
         default: //預設資料
-            pageAll(data, page);
+            pageAll(data, page); //使用全部資料
             break;
     }
 }
@@ -221,4 +234,4 @@ let popularZone = e => {
             break;
     }
 }
-popularBtn.addEventListener('click', popularZone, false);
+popularBtn.addEventListener('click', popularZone, false); //監聽熱門地區按鈕
