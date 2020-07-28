@@ -154,7 +154,7 @@ let pageBtn = pages => {
     for (let i = 1; i <= total; i++) { //迴圈增加頁碼
         //用<=是因為總頁數那一頁也要執行，例如總數3頁，用<會只出現2頁
         if (Number(pages.nowPage) === i) {
-            //有active是指所點擊的當前頁碼，bootstrap設定呈現藍色背景
+            //有active是指所點擊的當前頁碼，套用bootstrap設定呈現藍色背景
             str += `
             <li class="page-item active">
                 <a class="page-link" href="#" data-page="${i}">
